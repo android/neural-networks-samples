@@ -11,6 +11,7 @@ Samples
 ----------
 
 * **[Basic](Basic)** (Kotlin) - Sample that showcase the main NNAPI concept from Android 8.1.
+* **[Sequence](Sequence)** - Sample that showcase the advanced features added in Android 11.
 
 Check each module's README.md for additional descriptions and requirements.
 
