@@ -12,6 +12,9 @@ Samples
 
 * **[Basic](Basic)** (Kotlin) - Sample that showcase the main NNAPI concept from Android 8.1.
 * **[Sequence](Sequence)** - Sample that showcase the advanced features added in Android 11.
+* **[PoseEstimation](PoseEstimation)** (Kotlin) - Sample that implements a pose
+  estimation task to showcase the best practice of running a Camera -> GPU ->
+  NNAPI pipeline.
 
 Check each module's README.md for additional descriptions and requirements.
 

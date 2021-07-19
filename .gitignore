@@ -34,3 +34,6 @@ proguard-project.txt
 # Android Studio/IDEA
 *.iml
 .idea
+
+# VS Code files
+.vscode

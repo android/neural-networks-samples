@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2021 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">NNAPI Pose Estimation Demo</string>
+    <string name="config_camera_facing">Camera Facing:</string>
+    <string name="config_renderer">Renderer:</string>
+    <string name="config_ml_executor">ML Executor:</string>
+    <string name="config_start_button">start</string>
+    <string name="preview_score">Score: %.2f</string>
+    <string name="preview_total_latency">Total Latency: %.2f ms</string>
+    <string name="preview_renderer_latency">Renderer Latency: %.2f ms</string>
+    <string name="preview_ml_latency">ML Latency: %.2f ms</string>
+    <string name="preview_overlay_content_description">Keypoint overlay</string>
+</resources>
