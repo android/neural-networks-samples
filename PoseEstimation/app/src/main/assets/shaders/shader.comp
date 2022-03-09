@@ -1,0 +1,54 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+// glslc shader.comp -O --target-env=vulkan1.1 -o shader.comp.spv
+
+#version 450
+#pragma shader_stage(compute)
+
+layout (local_size_x_id = 0, local_size_y_id = 1) in;
+
+layout (binding = 0) uniform sampler2D cameraTexture;
+
+layout (binding = 1, std430) buffer Output {
+    float data[];
+} outputBuffer;
+
+layout (push_constant, std430) uniform PushConstant {
+    mat4 textureTransform;
+} constant;
+
+void main() {
+    if (gl_GlobalInvocationID.x >= 257u || gl_GlobalInvocationID.y >= 257u) return;
+
+    // Compute the texture coordinate
+    float fx = float(gl_GlobalInvocationID.x) / 256.0;
+    float fy = float(gl_GlobalInvocationID.y) / 256.0;
+    vec2 texCoord = (constant.textureTransform * vec4(fx, fy, 0.0, 1.0)).xy;
+
+    // Sample the color at the texture coordinate, resulting in a RGBA vector with range [0.0, 1.0]
+    vec4 color = texture(cameraTexture, texCoord);
+
+    // Normalize the color to [-1.0, 1.0]
+    color = color * 2.0 - 1.0;
+
+    // Write rgb colors to the output buffer
+    int index = (int(gl_GlobalInvocationID.y) * 257 + int(gl_GlobalInvocationID.x)) * 3;
+    outputBuffer.data[index] = color.r;
+    outputBuffer.data[index + 1] = color.g;
+    outputBuffer.data[index + 2] = color.b;
+}
