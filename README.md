@@ -21,7 +21,7 @@ Check each module's README.md for additional descriptions and requirements.
 Support
 ----------
 
-We highly recommend to use [Stack Overflow](http://stackoverflow.com/questions/tagged/android) to get help from the Andorid community.
+We highly recommend to use [Stack Overflow](http://stackoverflow.com/questions/tagged/android) to get help from the Android community.
 
 If you've found an error in this sample, please file an issue: https://github.com/android/renderscript-samples
 
